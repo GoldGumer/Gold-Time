@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class FightingPhase : RoundBaseState
+public class FightingState : RoundBaseState
 {
     public override void EnterState(RoundManager roundManager)
     {
-        roundManager.enemySpawner.StartSpawning(roundManager.roundCounter);
+        roundManager.enemySpawnerManager.StartSpawning(roundManager.roundCounter);
     }
     public override void UpdateState(RoundManager roundManager)
     {

@@ -7,7 +7,7 @@ public class RoundManager : MonoBehaviour
     public int roundCounter = 0;
     private RoundBaseState roundState;
     public ShopController shop;
-    public EnemySpawner enemySpawner;
+    public EnemySpawnerManager enemySpawnerManager;
 
 
     private void Start()
@@ -25,5 +25,10 @@ public class RoundManager : MonoBehaviour
     {
         roundState = nextState;
         roundState.EnterState(this);
+    }
+
+    public RoundBaseState GetRoundState()
+    {
+        return roundState;
     }
 }

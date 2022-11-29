@@ -80,7 +80,7 @@ public class Player : People
         {
             StopSlowTime();
         }
-        else if (!isSlowing && Input.GetKeyDown(KeyCode.E))
+        else if (!isSlowing && Input.GetKeyDown(KeyCode.E) && GameObject.Find("Round Manager").GetComponent<RoundManager>().GetRoundState() == new FightingState())
         {
             StartSlowTime();
         }
