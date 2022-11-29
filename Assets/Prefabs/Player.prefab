@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4918053838073635572}
   - component: {fileID: 4918053838073635571}
   - component: {fileID: 130146745392954982}
-  - component: {fileID: 1337787237982226231}
+  - component: {fileID: 7445059383012163461}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1337787237982226231
+--- !u!114 &7445059383012163461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,9 +133,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4918053838073635575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1d42ccbfd3f3f34f81568108c0c74ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 2130fe804f3147049972fd3b10402f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.3
-  runningMultiplier: 1.4
-  meleeAttackRange: 1
+  health: 3
+  movementSpeed: 6
+  goldCount: 50
+  damage: 1
+  runningSpeed: 12
+  meleeAttackRange: 5
+  meleeAttackCooldown: 1
+  slowMultiplier: 0.8
+  slowScale: 0.1
+  slowCost: 2

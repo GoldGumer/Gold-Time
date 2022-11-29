@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
-    private bool isOpen = true;
+    private bool isOpen = false;
     private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class ShopController : MonoBehaviour
         Color color;
         if (isOpen)
         {
-            color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
+            color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0f);
             isOpen = false;
         }
         else
