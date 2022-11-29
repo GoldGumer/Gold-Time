@@ -16,6 +16,6 @@ public class FightingPhase : RoundBaseState
     }
     protected override void ExitState(RoundManager roundManager)
     {
-
+        GameObject.FindWithTag("Player").GetComponent<Player>().StopSlowTime();
     }
 }

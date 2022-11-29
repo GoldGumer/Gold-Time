@@ -144,5 +144,6 @@ MonoBehaviour:
   meleeAttackRange: 5
   meleeAttackCooldown: 1
   slowMultiplier: 0.8
-  slowScale: 0.1
+  slowScale: 0.05
   slowCost: 2
+  slowCostCooldown: 1

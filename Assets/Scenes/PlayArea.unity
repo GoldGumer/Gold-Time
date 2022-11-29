@@ -1264,19 +1264,7 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7445059383012163461, guid: a3346f7333497eb4fb4ae1309c471482, type: 3}
-      propertyPath: slowCost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445059383012163461, guid: a3346f7333497eb4fb4ae1309c471482, type: 3}
-      propertyPath: slowScale
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445059383012163461, guid: a3346f7333497eb4fb4ae1309c471482, type: 3}
       propertyPath: slowMultiplier
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7445059383012163461, guid: a3346f7333497eb4fb4ae1309c471482, type: 3}
-      propertyPath: meleeAttackCooldown
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

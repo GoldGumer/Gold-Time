@@ -11,7 +11,10 @@ public class Player : People
     [SerializeField] float meleeAttackCooldown;
     [SerializeField] float slowMultiplier;
     [SerializeField] float slowScale;
-    [SerializeField] float slowCost;
+    [SerializeField] int slowCost;
+    [SerializeField] float slowCostCooldown;
+
+    float slowCostTimeToNext;
     bool isSlowing = false;
 
     // 2^LayerNO where LayerNO = 9 cause Enemy is the 9th layer
@@ -27,7 +30,7 @@ public class Player : People
 
         if (isSlowing) speed *= slowMultiplier;
 
-        transform.position += (Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")) * speed * Time.fixedDeltaTime;
+        transform.position += (Vector3.right * Input.GetAxis("Horizontal") + Vector3.up * Input.GetAxis("Vertical")) * speed * Time.unscaledDeltaTime;
     }
     protected override void UpdateLookDirection()
     {
@@ -73,16 +76,31 @@ public class Player : People
     }
     private void SlowTime()
     {
-        if (isSlowing && Input.GetKeyDown(KeyCode.Space))
+        if (isSlowing && Input.GetKeyDown(KeyCode.E))
         {
-            Time.timeScale = 1f;
-            isSlowing = false;
+            StopSlowTime();
         }
-        else if (!isSlowing && Input.GetKeyDown(KeyCode.Space))
+        else if (!isSlowing && Input.GetKeyDown(KeyCode.E))
         {
-            Time.timeScale = slowScale;
-            isSlowing = true;
+            StartSlowTime();
         }
+        if (isSlowing && slowCostTimeToNext <= 0f)
+        {
+            ChangeGold(-slowCost);
+            slowCostTimeToNext = slowCostCooldown;
+        }
+        slowCostTimeToNext -= Time.unscaledDeltaTime;
+    }
+    public void StartSlowTime()
+    {
+        Time.timeScale = slowScale;
+        isSlowing = true;
+    }
+    public void StopSlowTime()
+    {
+        Time.timeScale = 1f;
+        isSlowing = false;
+        slowCostTimeToNext = 0f;
     }
     private void LateUpdate()
     {
