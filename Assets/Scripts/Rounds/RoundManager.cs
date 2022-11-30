@@ -6,6 +6,8 @@ public class RoundManager : MonoBehaviour
 {
     public int roundCounter = 0;
     private RoundBaseState roundState;
+    public FightingState fightingState = new FightingState();
+    public ShoppingState shoppingState = new ShoppingState();
     public ShopController shop;
     public EnemySpawnerManager enemySpawnerManager;
 

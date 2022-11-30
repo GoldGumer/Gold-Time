@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9092456770035141372, guid: e39980019e5c8554c8c0688e010841a5, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 256963690}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39980019e5c8554c8c0688e010841a5, type: 3}
 --- !u!114 &256963688 stripped
@@ -191,6 +195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2955da0fb57b740884c8372d1fad80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &256963690 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2343535184583444758, guid: e39980019e5c8554c8c0688e010841a5, type: 3}
+  m_PrefabInstance: {fileID: 165671278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &345984320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1632053124590963581, guid: 7a7954e42680915429a15ebc3418b405, type: 3}
@@ -1076,6 +1085,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1861446162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2683566006626449826, guid: 32cc70de682a98849ab5db57e21057a1, type: 3}
+  m_PrefabInstance: {fileID: 8620488340677927444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1de153ac3eb0f2499274610ddbf7797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881258868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1360,10 @@ PrefabInstance:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5666867117172981316, guid: 4a1e2266b932d254b9b7f19e342e8cff, type: 3}
+      propertyPath: enemySpawnerManager
+      value: 
+      objectReference: {fileID: 1861446162}
     - target: {fileID: 8316621821908557785, guid: 4a1e2266b932d254b9b7f19e342e8cff, type: 3}
       propertyPath: m_Name
       value: Round Manager

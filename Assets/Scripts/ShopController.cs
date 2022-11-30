@@ -5,12 +5,12 @@ using UnityEngine;
 public class ShopController : MonoBehaviour
 {
     private bool isOpen = false;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     public void ChangeShop()

@@ -25,7 +25,7 @@ public class EnemySpawnerManager : MonoBehaviour
     {
         if (isSpawning && spawnTime <= 0f && enemiesToSpawn.Count > 0)
         {
-
+            //Spawn Enemy
             spawnTime = spawnRate;
         }
         else if (enemiesToSpawn.Count <= 0) isSpawning = false;

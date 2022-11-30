@@ -11,7 +11,7 @@ public class FightingState : RoundBaseState
         if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
         {
             ExitState(roundManager);
-            roundManager.SwitchState(new ShoppingState());
+            roundManager.SwitchState(roundManager.shoppingState);
         }
     }
     protected override void ExitState(RoundManager roundManager)
