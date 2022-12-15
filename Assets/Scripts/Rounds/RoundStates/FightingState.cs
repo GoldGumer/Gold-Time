@@ -8,7 +8,7 @@ public class FightingState : RoundBaseState
     }
     public override void UpdateState(RoundManager roundManager)
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 0 && GameObject.FindGameObjectWithTag("Enemy Spawner Manager").GetComponent<EnemySpawnerManager>().GetEnemiesToSpawnCount() <= 0)
         {
             ExitState(roundManager);
             roundManager.SwitchState(roundManager.shoppingState);

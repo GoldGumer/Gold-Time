@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2683566006626449826}
   m_Layer: 0
   m_Name: Enemy Spawner Manager
-  m_TagString: Untagged
+  m_TagString: Enemy Spawner Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 3
+  basicEnemy: {fileID: 2441723890002175243, guid: 4b1efe2ae33c7874b9e2d4d97629886b, type: 3}

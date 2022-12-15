@@ -11,6 +11,7 @@ public class ShoppingState : RoundBaseState
         if (Input.GetKeyDown("space"))
         {
             ExitState(roundManager);
+            roundManager.roundCounter++;
             roundManager.SwitchState(roundManager.fightingState);
         }
     }

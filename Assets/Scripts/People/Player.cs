@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class Player : People
 {
-    [SerializeField] float runningSpeed;
-    [SerializeField] float meleeAttackRange;
-    [SerializeField] float meleeAttackCooldown;
-    [SerializeField] float slowMultiplier;
-    [SerializeField] float slowScale;
-    [SerializeField] int slowCost;
-    [SerializeField] float slowCostCooldown;
+    [SerializeField] private float runningSpeed;
+    [SerializeField] private float meleeAttackRange;
+    [SerializeField] private float meleeAttackCooldown;
+    [SerializeField] private float slowMultiplier;
+    [SerializeField] private float slowScale;
+    [SerializeField] private int slowCost;
+    [SerializeField] private float slowCostCooldown;
 
-    float slowCostTimeToNext;
-    bool isSlowing = false;
+    private float slowCostTimeToNext;
+    private bool isSlowing = false;
 
     // 2^LayerNO where LayerNO = 9 cause Enemy is the 9th layer
     const int enemyLayer = 512;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoundManager : MonoBehaviour
 {
-    public int roundCounter = 0;
+    public int roundCounter;
     private RoundBaseState roundState;
     public FightingState fightingState = new FightingState();
     public ShoppingState shoppingState = new ShoppingState();
