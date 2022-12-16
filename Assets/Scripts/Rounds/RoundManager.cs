@@ -5,8 +5,9 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {
     public int roundCounter;
-    private RoundBaseState roundState;
+    private BaseState roundState;
     public FightingState fightingState = new FightingState();
+    public PeacefulState peacefulState = new PeacefulState();
     public ShoppingState shoppingState = new ShoppingState();
     public ShopController shop;
     public EnemySpawnerManager enemySpawnerManager;
@@ -14,22 +15,23 @@ public class RoundManager : MonoBehaviour
 
     private void Start()
     {
-        roundState = new ShoppingState();
-        roundState.EnterState(this);
+        roundState = peacefulState;
+        roundState.EnterState(gameObject);
     }
 
     private void Update()
     {
-        roundState.UpdateState(this);
+        Debug.Log(roundState.ToString());
+        roundState.UpdateState(gameObject);
     }
 
-    public void SwitchState(RoundBaseState nextState)
+    public void SwitchState(BaseState nextState)
     {
         roundState = nextState;
-        roundState.EnterState(this);
+        roundState.EnterState(gameObject);
     }
 
-    public RoundBaseState GetRoundState()
+    public BaseState GetRoundState()
     {
         return roundState;
     }

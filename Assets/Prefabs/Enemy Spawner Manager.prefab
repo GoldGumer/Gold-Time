@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2683566006626449826}
   m_Layer: 0
   m_Name: Enemy Spawner Manager
-  m_TagString: Enemy Spawner Manager
+  m_TagString: EnemySpawnerManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

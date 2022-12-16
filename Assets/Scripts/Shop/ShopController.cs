@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
+    public bool isAccessedByPlayer = false;
+
     private bool isOpen = false;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -28,5 +30,15 @@ public class ShopController : MonoBehaviour
         }
         spriteRenderer.color = color;
         gameObject.GetComponent<CircleCollider2D>().enabled = !gameObject.GetComponent<CircleCollider2D>().enabled;        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") &&
+            GameObject.FindGameObjectWithTag("RoundManager").GetComponent<RoundManager>().GetRoundState() 
+            == GameObject.FindGameObjectWithTag("RoundManager").GetComponent<RoundManager>().peacefulState)
+        {
+            isAccessedByPlayer = true;
+        }
     }
 }

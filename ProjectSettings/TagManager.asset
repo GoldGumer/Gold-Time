@@ -5,9 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shop
-  - Enemy Spawner
   - Enemy
-  - Enemy Spawner Manager
+  - ShopButtonsGroup
+  - RoundManager
+  - EnemySpawner
+  - EnemySpawnerManager
   layers:
   - Default
   - TransparentFX

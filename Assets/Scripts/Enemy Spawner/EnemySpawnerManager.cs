@@ -22,7 +22,7 @@ public class EnemySpawnerManager : MonoBehaviour
     {
         enemySpawners = new EnemySpawner[4];
         int i = 0;
-        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy Spawner"))
+        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("EnemySpawner"))
         {
             enemySpawners[i] = gameObject.GetComponent<EnemySpawner>();
             i++;

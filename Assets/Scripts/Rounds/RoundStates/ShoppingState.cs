@@ -1,22 +1,32 @@
+using TMPro;
 using UnityEngine;
+using Unity.VisualScripting;
 
-public class ShoppingState : RoundBaseState
+public class ShoppingState : BaseState
 {
-    public override void EnterState(RoundManager roundManager)
+    public override void EnterState(GameObject Object)
     {
-        roundManager.shop.ChangeShop();
-    }
-    public override void UpdateState(RoundManager roundManager)
-    {
-        if (Input.GetKeyDown("space"))
+        Transform shopButtons = GameObject.FindObjectOfType(typeof(Canvas)).GameObject().gameObject.transform.Find("ShopButtonsGroup");
+        if (shopButtons.CompareTag("ShopButtonsGroup"))
         {
-            ExitState(roundManager);
-            roundManager.roundCounter++;
-            roundManager.SwitchState(roundManager.fightingState);
+            shopButtons.GameObject().SetActive(true);
         }
     }
-    protected override void ExitState(RoundManager roundManager)
+    public override void UpdateState(GameObject Object)
     {
-        roundManager.shop.ChangeShop();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitState(Object);
+            Object.GetComponent<RoundManager>().SwitchState(Object.GetComponent<RoundManager>().peacefulState);
+        }
+    }
+    protected override void ExitState(GameObject Object)
+    {
+        Object.GetComponent<RoundManager>().shop.isAccessedByPlayer = false;
+        Transform shopButtons = GameObject.FindObjectOfType(typeof(Canvas)).GameObject().gameObject.transform.Find("ShopButtonsGroup");
+        if (shopButtons.CompareTag("ShopButtonsGroup"))
+        {
+            shopButtons.GameObject().SetActive(false);
+        }
     }
 }

@@ -142,8 +142,8 @@ MonoBehaviour:
   damage: 1
   runningSpeed: 12
   meleeAttackRange: 5
-  meleeAttackCooldown: 1
+  meleeAttackResetTimer: 3
   slowMultiplier: 0.8
   slowScale: 0.05
   slowCost: 2
-  slowCostCooldown: 1
+  slowResetTimer: 0

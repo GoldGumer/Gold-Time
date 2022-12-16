@@ -17,13 +17,14 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (player != null)
-        {
-            Vector3 lerpPos = new Vector3(player.position.x, player.position.y, transform.position.z);
-            if (Mathf.Abs(Mathf.Abs(player.position.x) - Mathf.Abs(transform.position.x)) > followDistance || Mathf.Abs(Mathf.Abs(player.position.y) - Mathf.Abs(transform.position.y)) > followDistance)
-            {
-                transform.position = Vector3.Lerp(transform.position, lerpPos, followSpeed);
-            }
-        }
+        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        //if (player != null)
+        //{
+        //    Vector3 lerpPos = new Vector3(player.position.x, player.position.y, transform.position.z);
+        //    if (Mathf.Abs(Mathf.Abs(player.position.x) - Mathf.Abs(transform.position.x)) > followDistance || Mathf.Abs(Mathf.Abs(player.position.y) - Mathf.Abs(transform.position.y)) > followDistance)
+        //    {
+        //        transform.position = Vector3.Lerp(transform.position, lerpPos, followSpeed);
+        //    }
+        //}
     }
 }

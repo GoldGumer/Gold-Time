@@ -20,6 +20,8 @@ public abstract class People : MonoBehaviour
     {
         health += healthDiff;
     }
+
+    public int GetHealth() { return health; }
     //Update is only should be used by people class and not any of the children
     private void Update()
     {

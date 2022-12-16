@@ -6,15 +6,16 @@ using UnityEngine;
 
 public class Player : People
 {
-    [SerializeField] private float runningSpeed;
-    [SerializeField] private float meleeAttackRange;
-    [SerializeField] private float meleeAttackCooldown;
-    [SerializeField] private float slowMultiplier;
-    [SerializeField] private float slowScale;
-    [SerializeField] private int slowCost;
-    [SerializeField] private float slowCostCooldown;
-
-    private float slowCostTimeToNext;
+    //public cause of upgrades
+    public float runningSpeed;
+    public float meleeAttackRange;
+    private float meleeAttackTimer;
+    public float meleeAttackResetTimer;
+    public float slowMultiplier;
+    public float slowScale;
+    public int slowCost;
+    private float slowTimer;
+    public float slowResetTimer;
     private bool isSlowing = false;
 
     // 2^LayerNO where LayerNO = 9 cause Enemy is the 9th layer
@@ -58,7 +59,7 @@ public class Player : People
     private void Attack()
     {
         Vector3 pointLookingAt = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-        if (Input.GetAxisRaw("Fire2") >= threshold && Input.GetAxisRaw("Fire1") >= threshold)
+        if (Input.GetAxisRaw("Fire2") >= threshold && Input.GetAxisRaw("Fire1") >= threshold && meleeAttackTimer <= 0.0f)
         {
             RaycastHit2D rayHit = Physics2D.Raycast(transform.position, pointLookingAt - transform.position, meleeAttackRange, enemyLayer);
             if (rayHit)
@@ -66,30 +67,39 @@ public class Player : People
                 Vector3 newPos = rayHit.transform.position;
                 rayHit.transform.gameObject.GetComponent<Enemy>().ChangeHealth(-damage);
                 transform.position = newPos;
+                meleeAttackTimer = meleeAttackResetTimer;
             }
         }
+        meleeAttackTimer -= Time.deltaTime;
     }
     public void ChangeGold(int goldDiff)
     {
         goldCount += goldDiff;
         FindObjectOfType(typeof(Canvas)).GameObject().gameObject.transform.Find("Gold Count").GetComponent<TMP_Text>().text = "Gold Count:\n" + goldCount;
     }
+    public int GetGold() { return goldCount; }
+
     private void SlowTime()
     {
         if (isSlowing && Input.GetKeyDown(KeyCode.E))
         {
             StopSlowTime();
         }
-        else if (!isSlowing && Input.GetKeyDown(KeyCode.E) && GameObject.Find("Round Manager").GetComponent<RoundManager>().GetRoundState() == GameObject.Find("Round Manager").GetComponent<RoundManager>().fightingState)
+        else if (!isSlowing && Input.GetKeyDown(KeyCode.E) && GameObject.FindGameObjectWithTag("RoundManager").GetComponent<RoundManager>().GetRoundState() == GameObject.FindGameObjectWithTag("RoundManager").GetComponent<RoundManager>().fightingState)
         {
             StartSlowTime();
         }
-        if (isSlowing && slowCostTimeToNext <= 0f)
+        if (isSlowing && slowTimer <= 0f)
         {
             ChangeGold(-slowCost);
-            slowCostTimeToNext = slowCostCooldown;
+            slowTimer = slowResetTimer;
         }
-        slowCostTimeToNext -= Time.unscaledDeltaTime;
+        slowTimer -= Time.unscaledDeltaTime;
+    }
+    public void ChangeHealth(int healthDiff)
+    {
+        health += healthDiff;
+        FindObjectOfType(typeof(Canvas)).GameObject().gameObject.transform.Find("Health Count").GetComponent<TMP_Text>().text = "Health:\n" + health;
     }
     public void StartSlowTime()
     {
@@ -100,7 +110,7 @@ public class Player : People
     {
         Time.timeScale = 1f;
         isSlowing = false;
-        slowCostTimeToNext = 0f;
+        slowTimer = 0f;
     }
     private void LateUpdate()
     {
